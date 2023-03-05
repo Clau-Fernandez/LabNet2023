@@ -18,7 +18,7 @@ namespace labNetPractica1
 
             Console.WriteLine("¡Bienvenido/a a la aplicación RDP! Tu aplicación de registro de pasajeros.");
 
-            Console.WriteLine("Empecemos...");
+            Console.WriteLine("\nEmpecemos registrando los pasajeros de los taxis...");
 
             //-------------------TAXI----------------------------------
 
@@ -50,6 +50,7 @@ namespace labNetPractica1
             }
 
             //-------------------OMNIBUS----------------------------------
+            Console.WriteLine("\nAhora pasemos a registrar los pasajeros de los ómnibus...");
 
             for (int i = 0; i < 5; i++)
             {
@@ -75,7 +76,7 @@ namespace labNetPractica1
                 transportes.Add(omnibus);
             }
 
-            Console.WriteLine("\n Listado de pasajeros ingresados");
+            Console.WriteLine("\nListado de pasajeros ingresados");
             foreach (var item in transportes)
             {
                 Console.WriteLine($"{item.GetNombre()} tiene: {item.GetPasajeros()} pasajeros");
@@ -86,13 +87,13 @@ namespace labNetPractica1
 
             bool seguirProbando = true;
 
-            Console.WriteLine("\n Nuestros transportes tienen algunas funciones que podes probar");
+            Console.WriteLine("\nNuestros transportes tienen algunas funciones que podes probar");
             while (seguirProbando)
             {
                 Console.WriteLine("Funciones:");
-                Console.WriteLine("Taxis: \n 1.Avanzar \n 2.Detenerse \n 3.Calcular el precio del viaje");
-                Console.WriteLine("Ómnibus: \n 4.Avanzar \n 5.Detenerse ");
-                Console.WriteLine("Si queres probar alguna, ingresá el número correspondiente, si no, ingresá 'x' para salir ");
+                Console.WriteLine("-Taxis: \n 1.Avanzar \n 2.Detenerse \n 3.Calcular el precio del viaje");
+                Console.WriteLine("-Ómnibus: \n 4.Avanzar \n 5.Detenerse ");
+                Console.WriteLine("Si querés probar alguna ingresa el número correspondiente, si no, ingresa 'x' para salir ");
                 string respuesta = Console.ReadLine();
                 int numMetodo;
 

@@ -11,7 +11,7 @@ namespace labNetPractica1
         
         public override string Avanzar()
         {
-            return "El taxi avanza tranquilo, no podemos decir lo mismo del taxímetro";
+            return "El taxi avanza tranquilo, no podemos decir lo mismo del taxímetro.";
         }
 
         public override string Detenerse()

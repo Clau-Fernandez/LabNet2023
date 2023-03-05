@@ -11,12 +11,12 @@ namespace labNetPractica1
         
         public override string Avanzar()
         {
-            return "El  ómnibus avanza a la siguiente parada";
+            return "El  ómnibus avanza a la siguiente parada.";
         }
 
         public override string Detenerse()
         {
-            return "EL ómnibus se detiene en la parada correspondiente";
+            return "EL ómnibus se detiene en la parada correspondiente.";
         }
     }
 }
