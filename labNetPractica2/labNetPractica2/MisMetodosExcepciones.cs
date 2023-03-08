@@ -22,8 +22,8 @@ namespace labNetPractica2
                 bool parseando = int.TryParse(numIngresado, out numero);
 
                 if (parseando)
-                {
-                    int resultado = MisMetodos.DividirPorCero(numero);
+                { 
+                    int resultado = numero.DividiendoPorCero();
                     estadoDeLaOperacion = "exitosa";
                     return ("El resultado es: " + resultado.ToString());
                 }

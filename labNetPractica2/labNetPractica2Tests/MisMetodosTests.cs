@@ -11,13 +11,15 @@ namespace labNetPractica2.Tests
     [TestClass()]
     public class MisMetodosTests
     {
+        
         [TestMethod()]
-        public void DividirPorCeroTest()
+        public void DividiendoPorCeroTest()
         {
             int numero = 5;
 
-            Assert.ThrowsException<DivideByZeroException>(() => { MisMetodos.DividirPorCero(numero); });
+            Assert.ThrowsException<DivideByZeroException>(() => { numero.DividiendoPorCero(); });
         }
+
 
         [TestMethod()]
         public void DivisionTest()
