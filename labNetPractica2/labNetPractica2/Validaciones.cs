@@ -39,12 +39,12 @@ namespace labNetPractica2
                     }
                     else
                     {
-                        Console.WriteLine("Opción inválida. Por favor ingrese un número entre 1 y 4 o 'x' para salir.\n");
+                        Console.WriteLine("Opción inválida. Recordá que solo podés ingresar un número entre 1 y 4 o 'x' si querés salir.\n");
                     }
                 }
                 else
                 {
-                    Console.WriteLine("Entrada inválida. Por favor ingrese un número entre 1 y 4 o 'x' para salir.\n");
+                    Console.WriteLine("Opción inválida. Recordá que solo podés ingresar un número entre 1 y 4 o 'x' si querés salir.\n");
                 }
             }
 

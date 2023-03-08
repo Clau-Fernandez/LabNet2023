@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace labNetPractica2
 {
-    static class MisMetodos
+    public static class MisMetodos
     {
         public static int DividirPorCero(int numero)
         {

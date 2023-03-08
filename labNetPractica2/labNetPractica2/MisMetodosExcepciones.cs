@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace labNetPractica2
 {
-    static class MisMetodosExcepciones
+    public static class MisMetodosExcepciones
     {
         public static string ProbandoDividirPorCero()
         {
@@ -87,5 +87,5 @@ namespace labNetPractica2
 
 
 
-    }
+    } 
 }
