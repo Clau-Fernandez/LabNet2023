@@ -53,6 +53,7 @@
     <Compile Include="DisplayLists.cs" />
     <Compile Include="MenuBase.cs" />
     <Compile Include="MenuCategories.cs" />
+    <Compile Include="MenuShippers.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Validations.cs" />

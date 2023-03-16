@@ -15,11 +15,11 @@ namespace LabNetPractica3.EF.UI
             Console.WriteLine("2. Agregar un nuevo registro");
             Console.WriteLine("3. Modificar un registro");
             Console.WriteLine("4. Eliminar un registro");
-            Console.WriteLine("5. Probar una consulta");
+            Console.WriteLine("5. Ejecutar una consulta");
 
         }
 
-        abstract public void ChooseMethodToExecute(int opcion);
+        abstract public void ChooseMethodToExecute();
         
     }
 }

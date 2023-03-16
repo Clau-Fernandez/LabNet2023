@@ -1,5 +1,4 @@
-﻿using LabNetPractica3.EF.Entities;
-using LabNetPractica3.EF.Exceptions;
+﻿using LabNetPractica3.EF.Exceptions;
 using LabNetPractica3.EF.Logic;
 using System;
 using System.Collections.Generic;
@@ -9,14 +8,13 @@ using System.Threading.Tasks;
 
 namespace LabNetPractica3.EF.UI
 {
-    public class MenuCategories : MenuBase
+    public class MenuShippers : MenuBase
     {
-        public override void ChooseMethodToExecute() 
+        public override void ChooseMethodToExecute()
         {
-            
             DisplayLists displayLists = new DisplayLists();
-            CategoriesLogic categoriesLogic = new CategoriesLogic();
-            CategoriesABMExceptions exceptions = new CategoriesABMExceptions();
+            ShippersLogic shippersLogic = new ShippersLogic();
+            ShippersABMExceptions exceptions = new ShippersABMExceptions();
 
             while (true)
             {
@@ -28,7 +26,7 @@ namespace LabNetPractica3.EF.UI
                 switch (numberCase)
                 {
                     case 1:
-                        Console.WriteLine(displayLists.CategoriesList());
+                        Console.WriteLine(displayLists.ShippersList());
                         break;
                     case 2:
                         Console.WriteLine(exceptions.AddException());
@@ -40,14 +38,14 @@ namespace LabNetPractica3.EF.UI
                         Console.WriteLine(exceptions.DeleteException());
                         break;
                     case 5:
-                        Console.WriteLine("Realizamos una consulta a la base de datos para obtener una lista de todas las categorías cuyo nombre comienza con la letra C \n");
-                        Console.WriteLine(categoriesLogic.CategoriesQuery());
+                        Console.WriteLine("Realizamos una consulta a la base de datos para obtener la compañía que contiene la palabra 'United' en su nombre\n");
+                        Console.WriteLine(shippersLogic.ShippersQuery());
                         break;
                     default:
                         Console.WriteLine("Opción inválida");
                         break;
                 }
-                
+
                 Console.WriteLine("\n¿Querés seguir probando métodos? Ingresa 's' para continuar o cualquier otra tecla para salir.");
                 string respuesta = Console.ReadLine();
 
@@ -55,10 +53,9 @@ namespace LabNetPractica3.EF.UI
                 {
                     break;
                 }
-               
+
 
             }
-
         }
     }
 }

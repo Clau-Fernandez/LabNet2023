@@ -18,6 +18,7 @@ namespace LabNetPractica3.EF.Logic
         public void Add(Shippers newShipper)
         {
             context.Shippers.Add(newShipper);
+            context.SaveChanges();
         }
 
         public void Delete(int id)

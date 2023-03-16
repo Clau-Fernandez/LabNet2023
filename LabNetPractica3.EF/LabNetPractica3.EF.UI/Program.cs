@@ -19,33 +19,48 @@ namespace LabNetPractica3.EF.UI
             Console.WriteLine("2.Tabla Remitentes");
             Console.WriteLine("Ingresa el numero de la tabla con la que quieras iniciar o x para salir");
 
-            Validations validations = new Validations();
-            int opcion = validations.ValidatingNumberEntry();
+            int option = 0;
+            bool numValido = false;
 
-            if (opcion == 1) 
+            while (!numValido)
             {
-                MenuCategories menuCategories = new MenuCategories();
-                menuCategories.ShowMenu();
+                string input = Console.ReadLine();
 
-                Console.WriteLine("Ingresa el numero del método que queres ejecutar");
-                int numberCase = validations.ValidatingCaseNumbers();
-                menuCategories.ChooseMethodToExecute(numberCase);
+                if (input == "x")
+                {
+                    Console.WriteLine("Gracias por usar la app, hasta pronto!");
+                    break;
 
+                }
+                else if (int.TryParse(input, out option))
+                {
+                    if (option == 1)
+                    {
+                        Console.WriteLine("------CATEGORIAS------");
+                        MenuCategories menuCategories = new MenuCategories();
+                        menuCategories.ShowMenu();
+                        menuCategories.ChooseMethodToExecute();
+
+                        numValido = true;
+                        
+                    }
+                    else if (option == 2)
+                    {
+                        Console.WriteLine("------REMITENTES------");
+                        MenuShippers menuShippers = new MenuShippers(); 
+                        menuShippers.ShowMenu();
+                        menuShippers.ChooseMethodToExecute();
+                      
+                        numValido = true;
+                        
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Opción inválida. Intentalo de nuevo..\n");
+                }
             }
-            else if (opcion == 2) 
-            {
-                Console.WriteLine("ingresaste 2");
-            }
-
-            Console.WriteLine("Saliste");
-
-
-           
-
-            
-
-
-
+      
 
             Console.ReadLine();
         }
