@@ -26,12 +26,12 @@ namespace LabNetPractica4.LINQ.UI
                     }
                     else
                     {
-                        Console.WriteLine("Opción inválida. Recordá que solo podés ingresar un número del 1 al 5");
+                        Console.WriteLine("Opción inválida. Recordá que solo podés ingresar un número del 1 al 13.Intentalo de nuevo ;)");
                     }
                 }
                 else
                 {
-                    Console.WriteLine("Opción inválida. Recordá que solo podés ingresar un número del 1 al 5\n");
+                    Console.WriteLine("Opción inválida. Recordá que solo podés ingresar un número del 1 al 13.Intentalo de nuevo ;)\n");
                 }
             }
 

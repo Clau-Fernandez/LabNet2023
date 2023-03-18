@@ -21,7 +21,7 @@ namespace LabNetPractica4.LINQ.UI
             {
                 listOfQueries.ShowListOfQueries();
                 Validation validation = new Validation();
-                Console.WriteLine("Ingresa el numero del método que queres ejecutar:");
+                Console.WriteLine("\nIngresa el número de la query que queres consultar");
 
                 int numberCase = validation.ValidatingCaseNumbers();
 
@@ -89,7 +89,7 @@ namespace LabNetPractica4.LINQ.UI
                         querySintax.GetCustomerOrdersCount().ForEach(item => Console.WriteLine($"Cliente: {item.CustomerName} - Cantidad de órdenes: {item.Order}"));
                         break;
                     default:
-                        Console.WriteLine("Opción inválida");
+                        Console.WriteLine("Esa opción no es válida");
                         break;
                 }
                 
@@ -98,6 +98,7 @@ namespace LabNetPractica4.LINQ.UI
 
                 if (respuesta.ToLower() == "x")
                 {
+                    Console.WriteLine("Gracias por usar la app, hasta la próxima!");
                     break;
                 }
 
