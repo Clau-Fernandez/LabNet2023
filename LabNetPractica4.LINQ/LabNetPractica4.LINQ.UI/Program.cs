@@ -3,6 +3,7 @@ using LabNetPractica4.LINQ.Logic;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -14,96 +15,98 @@ namespace LabNetPractica4.LINQ.UI
         {
             QuerySintax querySintax = new QuerySintax();
             MethodSintax methodSintax = new MethodSintax();
+            ListOfQueries listOfQueries = new ListOfQueries();
 
-            //------------Query1------------
-            //var customer = querySintax.GetTheFirstCustomer();
-            //Console.WriteLine($"CustomerID: {customer.CustomerID}");
-            //Console.WriteLine($"ContactName: {customer.ContactName}");
-            //Console.WriteLine($"CompanyName: {customer.CompanyName}");
-            //Console.WriteLine($"ContactName: {customer.ContactTitle}");
-            //Console.WriteLine($"CompanyName: {customer.Address}");
-            //Console.WriteLine($"CompanyName: {customer.City}");
-            //Console.WriteLine($"CompanyName: {customer.Region}");
-            //Console.WriteLine($"CompanyName: {customer.PostalCode}");
-            //Console.WriteLine($"CompanyName: {customer.Country}");
-            //Console.WriteLine($"CompanyName: {customer.Phone}");
-            //Console.WriteLine($"CompanyName: {customer.Fax}");
+            while (true)
+            {
+                listOfQueries.ShowListOfQueries();
+                Validation validation = new Validation();
+                Console.WriteLine("Ingresa el numero del método que queres ejecutar:");
 
-            //------------Query2------------
+                int numberCase = validation.ValidatingCaseNumbers();
 
-            //var productsOutOfStock = querySintax.GetOutOfStockProducts();
+                switch (numberCase)
+                {
+                    case 1: 
+                        Func<Customers, string> customerInfo = c => $"ClienteID: {c.CustomerID}\nNombre de contacto: {c.ContactName}\nNombre de la compañia: {c.CompanyName}\nTítulo: {c.ContactTitle}\nDirección: {c.Address}\nCiudad: {c.City}\nRegión: {c.Region}\nCódigo postal: {c.PostalCode}\nPaís: {c.Country}\nTeléfono: {c.Phone}\nFax: {c.Fax}";
+                        Console.WriteLine(customerInfo(querySintax.GetTheFirstCustomer()));
 
-            //foreach (var product in productsOutOfStock)
-            //{
-            //    Console.WriteLine(product.ProductName);
-            //}
+                        break;
+                    case 2:
+                        var productsOutOfStock = querySintax.GetOutOfStockProducts();
+                        productsOutOfStock.ForEach(product => Console.WriteLine(product.ProductName));
+                        break;
 
-            //------------Query3------------
+                    case 3:
+                        Func<List<Products>> productsInStockAndCostMoreThan3 = () => methodSintax.GetProductsInStockAndCostMoreThan3();
+                        productsInStockAndCostMoreThan3().ForEach(product => Console.WriteLine($"Nombre del producto: {product.ProductName} | Unidades en stock: {product.UnitsInStock} | Precio unitario :$ {product.UnitPrice}"));
+                        break;
 
-            //var productsInStockAndCostMoreThan3 = methodSintax.GetProductsInStockAndCostMoreThan3();
+                    case 4:
+                        Func<List<Customers>> customersFromWA = () => methodSintax.GetCustomersFromWARegion();
+                        customersFromWA().ForEach(customer => Console.WriteLine($"{customer.CustomerID} - {customer.ContactName}"));
+                        break;
+                    case 5:
+                        Func<Products> productById = () => methodSintax.GetProductById();
+                        Products selectedProduct = productById();
+                        Console.WriteLine(selectedProduct == null ? "null" : selectedProduct.ProductName);
+                        break;
+                    case 6:
+                        Func<List<string>> customersNamesInUpperCase = () => methodSintax.GetCustomersNamesInUpperCase();
+                        List<string> namesInUpperCase = customersNamesInUpperCase();
+                        Console.WriteLine("----Nombre de los clientes en mayúscula----");
+                        namesInUpperCase.ForEach(name => Console.WriteLine(name));
+                        Console.WriteLine("\n----Nombre de los clientes en minúscula----");
+                        namesInUpperCase.ForEach(name => Console.WriteLine(name.ToLower()));
+                        break;
+                    case 7:
+                        var customersOrders = querySintax.GetCustomersOrders();
+                        foreach (var co in customersOrders)
+                        {
+                            Console.WriteLine($"Nombre del cliente: {co.CustomerName} - Order ID: {co.Order}");
+                        }
+                        break;
+                    case 8:
+                        Func<List<Customers>> firstThreeCustomersFromWA = () => methodSintax.GetFirstThreeCustomersFromWA();
+                        firstThreeCustomersFromWA().ForEach(c => Console.WriteLine($"ID: {c.CustomerID} - Nombre: {c.ContactName}"));
+                        break;
+                    case 9:
+                        Func<List<Products>> productsOrderedByName = () => querySintax.GetProductsOrderedByName();
+                        productsOrderedByName().ForEach(p => Console.WriteLine(p.ProductName));
+                        break;
+                    case 10:
+                        Func<List<Products>> productsOrderedByUnitsInStockDescending = () => methodSintax.GetProductsOrderedByUnitsInStockDescending();
+                        productsOrderedByUnitsInStockDescending().ForEach(p => Console.WriteLine($"Nombre del producto: {p.ProductName}, Unidades en stock: {p.UnitsInStock}"));
+                        break;
+                    case 11:
+                        querySintax.GetDistinctCategories().ForEach(category => Console.WriteLine(category));
+                        break;
+                    case 12:
+                        var firstProduct = methodSintax.GetFirstProduct();
+                        Console.WriteLine($"Producto ID: {firstProduct.ProductID}, Nombre Producto: {firstProduct.ProductName}, Precio unitario:$ {firstProduct.UnitPrice}");
+                        break;
+                    case 13:
+                        querySintax.GetCustomerOrdersCount().ForEach(item => Console.WriteLine($"Cliente: {item.CustomerName} - Cantidad de órdenes: {item.Order}"));
+                        break;
+                    default:
+                        Console.WriteLine("Opción inválida");
+                        break;
+                }
+                
+                Console.WriteLine("\n¿Querés seguir probando métodos? Ingresa cualquier letra para continuar o 'X' para salir");
+                string respuesta = Console.ReadLine();
 
-            //foreach (var product in productsInStockAndCostMoreThan3)
-            //{
-            //    Console.WriteLine($"Product Name: {product.ProductName} | Units in Stock: {product.UnitsInStock} | Unit Price: {product.UnitPrice}" );
-            //}
+                if (respuesta.ToLower() == "x")
+                {
+                    break;
+                }
 
-            //------------Query4------------
+               Console.Clear();
 
-            //var customersFromWA = methodSintax.GetCustomersFromWARegion();
-
-            //foreach (var customer in customersFromWA)
-            //{
-            //    Console.WriteLine(customer.CustomerID + " - " + customer.ContactName);
-            //}
-
-            //------------Query5------------
-
-            //var productById = methodSintax.GetProductById();
-
-            //if (productById == null)
-            //{
-            //    Console.WriteLine("null");
-            //}
-            //else
-            //{
-            //    Console.WriteLine(productById.ProductName);
-            //}
-
-            //------------Query6------------
-
-            //var customersInUpperCase = methodSintax.GetCustomersNamesInUpperCase();
-            //Console.WriteLine("Nombre de los clientes en mayúscula:\n");
-            //foreach (var name in customersInUpperCase)
-            //{
-            //    Console.WriteLine(name);
-            //}
-
-            //Console.WriteLine("\nNombre de los clientes en minúscula\n");
-
-            //foreach (var name in customersInUpperCase)
-            //{
-            //    Console.WriteLine(name.ToLower());
-            //}
-
-            //------------Query7------------
-                     
-            //var customersOrders = querySintax.GetCustomersOrders();
-
-            //foreach (var co in customersOrders)
-            //{
-            //    Console.WriteLine($"Customer Name: {co.CustomerName} - Order ID: {co.OrderID}");
-            //}
-
-            //------------Query8------------
-
-
-
-
-
-
-
-
-            Console.ReadLine(); 
+                 
+            }
+               Console.ReadLine();
+            
         }
     }
 }

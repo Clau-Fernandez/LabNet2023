@@ -36,5 +36,28 @@ namespace LabNetPractica4.LINQ.Logic
 
             return customerNames.ToList();
         }
+
+        public List<Customers> GetFirstThreeCustomersFromWA()
+        {
+            var customers = context.Customers
+                .Where(c => c.Region == "WA")
+                .Take(3)
+                .ToList();
+            return customers;
+        }
+
+        public List<Products> GetProductsOrderedByUnitsInStockDescending()
+        {
+            var products = context.Products.OrderByDescending(p => p.UnitsInStock).ToList();
+            return products;
+        }
+
+        public Products GetFirstProduct()
+        {
+            var firstProduct = context.Products.FirstOrDefault();
+            return firstProduct;
+        }
+
+       
     }
 }

@@ -9,6 +9,6 @@ namespace LabNetPractica4.LINQ.Entities
     public class CustomerOrder
     {
         public string CustomerName { get; set; }
-        public int OrderID { get; set; }
+        public int Order { get; set; }
     }
 }

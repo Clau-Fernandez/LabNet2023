@@ -32,11 +32,37 @@ namespace LabNetPractica4.LINQ.Logic
             var customersOrders = from c in context.Customers
                                   join o in context.Orders on c.CustomerID equals o.CustomerID
                                   where c.Region == "WA" && o.OrderDate > new DateTime(1997, 1, 1)
-                                  select new CustomerOrder { CustomerName = c.ContactName, OrderID = o.OrderID };
+                                  select new CustomerOrder { CustomerName = c.ContactName, Order = o.OrderID };
 
             return customersOrders.ToList();
         }
 
+        public List<Products> GetProductsOrderedByName()
+        {
+            var productsOrdered = from p in context.Products
+                                  orderby p.ProductName
+                                  select p;
+            return productsOrdered.ToList();
+        }
+
+        public List<string> GetDistinctCategories()
+        {
+            var categories = (from p in context.Products
+                              join c in context.Categories on p.CategoryID equals c.CategoryID
+                              select c.CategoryName).Distinct().ToList();
+            return categories;
+        }
+        public List<CustomerOrder> GetCustomerOrdersCount()
+        {
+            var customerOrders = from c in context.Customers
+                                 join o in context.Orders on c.CustomerID equals o.CustomerID into g
+                                 select new CustomerOrder
+                                 {
+                                     CustomerName = c.ContactName,
+                                     Order = g.Count()
+                                 };
+            return customerOrders.ToList();
+        }
 
     }
 }
