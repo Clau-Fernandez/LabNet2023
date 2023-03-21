@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jueguito</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="caja">
+        <h1>Que comience el juego</h1>
+        <p>Ingresa un número entre 1 y 20:</p>
+        <input type="text" id="guess" />
+        <button id="submit">Adivinar</button>
+        <p>Puntaje: <span id="score">10</span></p>
+
+        <p>Pista: <span id="hint"></span></p>
+        <p>Puntuación más alta: <span id="highScore"></span></p>
+        <button id="reset">Reiniciar</button>
+
+        <div id="message" style="display: none"></div>
+
+        <div class="custom-alert" id="alert-win">
+          <h2>¡Muy bien, sobreviviste esta ronda!</h2>
+          <button class="close-btn" id="closeBtn-win">Cerrar</button>
+        </div>
+
+        <div class="custom-alert" id="alert-lose">
+          <h2>¡Se terminó tu suerte!</h2>
+          <button class="close-btn" id="closeBtn-lose">Cerrar</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="logic.js"></script>
+  </body>
+</html>
