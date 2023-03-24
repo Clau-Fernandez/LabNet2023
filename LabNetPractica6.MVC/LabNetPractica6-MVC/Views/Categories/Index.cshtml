@@ -1,0 +1,49 @@
+﻿@model List<LabNetPractica6_MVC.Models.CategoryView>
+
+@{
+    ViewBag.title = "Categories Page";
+}
+
+<div class="container">
+
+    <h1 class="mb-md-4">Categorias</h1>
+
+    <table class="table table-hover">
+
+        <thead>
+            <tr>
+                <th scope="col"></th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Descripción</th>
+                <th scope="col">Acciones</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var category in Model)
+            {
+                <tr>
+                    <td>@category.CategoryID</td>
+                    <td>@category.CategoryName</td>
+                    <td>@category.Description</td>
+                    <td>@Html.ActionLink("Modificar", "Update", new { id = category.CategoryID }, new { @class = "btn btn-secondary" })</td>
+                    <td>@Html.ActionLink("Borrar", "Delete", new { id = category.CategoryID }, new { @class = "btn btn-danger", onclick = "return confirm('¿Seguro que quieres borrar este elemento?')" })</td>
+
+                </tr>
+
+            }
+        </tbody>
+
+    </table>
+
+
+    <div>
+        @Html.ActionLink("Agregar una nueva Categoría", "Insert", null, new { @class = "btn btn-primary" })
+    </div>
+    <br>
+    <div>
+        @Html.ActionLink("Categorías que comienzan con C", "CategoriesStartingWithC", null, new { @class = "btn btn-link" })
+    </div>
+
+</div>
+

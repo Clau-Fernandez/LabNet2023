@@ -62,12 +62,6 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\LabNetPractica3.EF.UI\LabNetPractica3.EF.UI.csproj">
-      <Project>{A51E97E1-800D-49D3-BCFF-B2800CED49F6}</Project>
-      <Name>LabNetPractica3.EF.UI</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>

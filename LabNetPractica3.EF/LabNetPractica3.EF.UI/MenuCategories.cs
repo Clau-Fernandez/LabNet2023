@@ -41,7 +41,7 @@ namespace LabNetPractica3.EF.UI
                         break;
                     case 5:
                         Console.WriteLine("Realizamos una consulta a la base de datos para obtener una lista de todas las categorías cuyo nombre comienza con la letra C \n");
-                        Console.WriteLine(categoriesLogic.CategoriesQuery());
+                       // Console.WriteLine(categoriesLogic.CategoriesQuery());
                         break;
                     default:
                         Console.WriteLine("Opción inválida");

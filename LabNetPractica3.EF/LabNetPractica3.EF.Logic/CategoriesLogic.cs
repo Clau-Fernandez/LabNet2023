@@ -16,6 +16,7 @@ namespace LabNetPractica3.EF.Logic
         public List<Categories> GetAll() 
         {
             return context.Categories.ToList();
+
         }
 
         public void Add(Categories newCategory) 
@@ -31,7 +32,7 @@ namespace LabNetPractica3.EF.Logic
             context.Categories.Remove(categoryToDelete);
 
             context.SaveChanges();
-
+            
             var lastCategoryId = context.Categories.Max(c => c.CategoryID);
             var connection = context.Database.Connection;
             var command = connection.CreateCommand();
@@ -46,23 +47,20 @@ namespace LabNetPractica3.EF.Logic
         {
             var categoryUpdate = context.Categories.Find(category.CategoryID);
             categoryUpdate.Description =category.Description;
+            categoryUpdate.CategoryName = category.CategoryName;
 
             context.SaveChanges();
 
         }
 
-        public string CategoriesQuery() 
+        public Categories GetById(int id)
         {
-            var listfirstLetterWithC = "";
-            var firstLetterWithC = context.Categories.Where(c => c.CategoryName.StartsWith("C")).ToList();
+            return context.Categories.Find(id);
+        }
 
-            foreach (var c in firstLetterWithC) 
-            {
-                listfirstLetterWithC += $"{c.CategoryName} - {c.Description}\n";
-            }
-            
-            return listfirstLetterWithC;
-
+        public List<Categories> GetCategoriesStartingWithC()
+        {
+            return context.Categories.Where(c => c.CategoryName.StartsWith("C")).ToList();
         }
 
 
