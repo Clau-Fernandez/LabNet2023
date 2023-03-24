@@ -1,11 +1,16 @@
 ﻿@{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "Inicio";
 }
+<body class="bg-dark">
+    <main class="d-flex align-items-center justify-content-center mt-5">
+        <div class="container text-white text-center mt-5 bg-dark bg-gradient">
+            <h1 class="display-4 mt-5"><strong>¡Bienvenidos a la app!</strong> </h1>
+            <p class="lead mt-5"><strong>Este es un sencillo ABMC que utliza la entidad 'Categories'</strong></p>
+            <a class="btn btn-primary btn-lg mt-5" href="@Url.Action("Index", "Categories")" role="button">Ver categorías</a>
 
-<main>
-    <section class="row" aria-labelledby="aspnetTitle">
-        <h1 id="title">LabNetPractica6</h1>
-        
+        </div>
 
-    </section>
-</main>
+    </main>>
+
+</body>
+

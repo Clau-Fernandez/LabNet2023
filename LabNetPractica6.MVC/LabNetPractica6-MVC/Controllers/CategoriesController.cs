@@ -52,8 +52,17 @@ namespace LabNetPractica6_MVC.Controllers
 
         public ActionResult Delete(int id)
         {
-            categoriesLogic.Delete(id);
-            return RedirectToAction("Index");
+            try
+            {
+                categoriesLogic.Delete(id);
+                return RedirectToAction("Index");
+
+            }
+            catch (Exception)
+            {
+
+                return RedirectToAction("Error", "Error", new { errorMessage = "No se pueden borrar elementos originales de la base de datos" });
+            }
         }
 
         public ActionResult Update(int id)

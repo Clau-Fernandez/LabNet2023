@@ -10,6 +10,7 @@
         @Html.AntiForgeryToken()
 
         <div class="form-group my-3">
+
             @Html.LabelFor(c => c.CategoryName, new { @class = "col-md-2 control-label" })
             <div class="col-md-10">
                 @Html.TextBoxFor(c => c.CategoryName, new { @class = "form-control" })
@@ -33,7 +34,7 @@
     }
 
     <div>
-        @Html.ActionLink("Volver a Categorias", "Index")
+        @Html.ActionLink("Volver", "Index")
     </div>
 
 </div>

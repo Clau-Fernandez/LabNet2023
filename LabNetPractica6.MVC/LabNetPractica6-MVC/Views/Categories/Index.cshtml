@@ -8,22 +8,23 @@
 
     <h1 class="mb-md-4">Categorias</h1>
 
-    <table class="table table-hover">
+    <table class="table table-hover mb-4">
 
         <thead>
             <tr>
                 <th scope="col"></th>
                 <th scope="col">Nombre</th>
                 <th scope="col">Descripción</th>
-                <th scope="col">Acciones</th>
-
+                <th scope="col"></th>
+                <th scope="col"></th>
             </tr>
         </thead>
+
         <tbody>
             @foreach (var category in Model)
             {
                 <tr>
-                    <td>@category.CategoryID</td>
+                    <td>@Html.HiddenFor(model => category.CategoryID)</td>
                     <td>@category.CategoryName</td>
                     <td>@category.Description</td>
                     <td>@Html.ActionLink("Modificar", "Update", new { id = category.CategoryID }, new { @class = "btn btn-secondary" })</td>
@@ -37,12 +38,12 @@
     </table>
 
 
-    <div>
-        @Html.ActionLink("Agregar una nueva Categoría", "Insert", null, new { @class = "btn btn-primary" })
+    <div class="m-2">
+        @Html.ActionLink("Agregar una nueva Categoría", "Insert", null, new { @class = "btn btn-outline-primary" })
     </div>
-    <br>
-    <div>
-        @Html.ActionLink("Categorías que comienzan con C", "CategoriesStartingWithC", null, new { @class = "btn btn-link" })
+   
+    <div class="m-2 mt-4">
+        @Html.ActionLink("Ver categorías que comienzan con C", "CategoriesStartingWithC", null, new { @class = "btn btn-outline-dark" })
     </div>
 
 </div>
