@@ -1,0 +1,21 @@
+﻿@model LabNetPractica6_MVC.Models.DogView
+
+<div class="container">
+    <h2 class="my-4">Imagen aleatoria de un perro</h2>
+
+    @if (Model != null)
+    {
+        <img src="@Model.Url" alt="Imagen de perro" class="img-fluid mx-auto d-block max-img-size" />
+    }
+    else
+    {
+        <p>No se pudo obtener una imagen de perro aleatoria.</p>
+    }
+</div>
+
+<style>
+    .max-img-size {
+        max-width: 500px;
+        max-height: 500px;
+    }
+</style>

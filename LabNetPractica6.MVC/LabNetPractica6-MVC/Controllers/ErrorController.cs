@@ -13,5 +13,6 @@ namespace LabNetPractica6_MVC.Controllers
             ViewBag.ErrorMessage = errorMessage;
             return View();
         }
+
     }
 }
