@@ -108,7 +108,7 @@ namespace LabNetPractica6_MVC.Controllers
     
 
 
-    public ActionResult CategoriesStartingWithC()
+        public ActionResult CategoriesStartingWithC()
         {
             List<Categories> categoriesStartingWithC = categoriesLogic.GetCategoriesStartingWithC();
 

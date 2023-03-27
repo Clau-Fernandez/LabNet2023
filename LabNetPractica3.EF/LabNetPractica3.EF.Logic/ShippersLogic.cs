@@ -42,23 +42,19 @@ namespace LabNetPractica3.EF.Logic
         {
             var shipperUpdate = context.Shippers.Find(shipper.ShipperID);
             shipperUpdate.CompanyName = shipper.CompanyName;
+            shipperUpdate.Phone = shipper.Phone;
 
             context.SaveChanges();
         }
-
-
-        public string ShippersQuery()
+        public Shippers GetById(int id)
         {
-            var containsUnited = "";
-            var result = context.Shippers.Where(s => s.CompanyName.Contains("United")).ToList();
-            
-            foreach (var s in result)
-            {
-                containsUnited += $"{s.CompanyName} - ID:{s.ShipperID}\n";
-            }
-
-            return containsUnited;
-
+            return context.Shippers.Find(id);
         }
+
+        public List<Shippers> ShippersQuery()
+        {
+            return context.Shippers.Where(s => s.CompanyName.Contains("United")).ToList();
+        }
+
     }
 }

@@ -137,6 +137,7 @@
     <Compile Include="Controllers\CategoriesController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ShippersController.cs" />
     <Compile Include="Controllers\TheDogAPIController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -144,6 +145,7 @@
     <Compile Include="Models\CategoryView.cs" />
     <Compile Include="Models\DogView.cs" />
     <Compile Include="Models\ErrorView.cs" />
+    <Compile Include="Models\ShipperView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -201,6 +203,10 @@
     <Content Include="Views\Categories\CategoriesStartingWithC.cshtml" />
     <Content Include="Views\Categories\Update.cshtml" />
     <Content Include="Views\TheDogAPI\Index.cshtml" />
+    <Content Include="Views\Shippers\Index.cshtml" />
+    <Content Include="Views\Shippers\Insert.cshtml" />
+    <Content Include="Views\Shippers\Update.cshtml" />
+    <Content Include="Views\Shippers\ShippersContainingUnited.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

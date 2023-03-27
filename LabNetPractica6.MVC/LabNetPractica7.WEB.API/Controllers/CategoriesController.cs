@@ -18,7 +18,6 @@ namespace LabNetPractica7.WEB.API.Controllers
             categoriesLogic = new CategoriesLogic();
         }
 
-        
         public IHttpActionResult Get()
         {
             try
@@ -43,7 +42,6 @@ namespace LabNetPractica7.WEB.API.Controllers
             }
         }
 
-        
         public IHttpActionResult Get(int id)
         {
             try
@@ -69,8 +67,6 @@ namespace LabNetPractica7.WEB.API.Controllers
             }
             
         }
-
-        
         public IHttpActionResult Post([FromBody] CategoryModel categoryModel)
         {
             try
@@ -97,7 +93,6 @@ namespace LabNetPractica7.WEB.API.Controllers
                 return InternalServerError(ex);
             }
         }
-
         
         public IHttpActionResult Put(int id, [FromBody] CategoryModel categoryModel)
         {
@@ -125,7 +120,6 @@ namespace LabNetPractica7.WEB.API.Controllers
                 categoriesLogic.Update(category);
 
                 return Ok();
-
             }
             catch (Exception ex)
             { 
