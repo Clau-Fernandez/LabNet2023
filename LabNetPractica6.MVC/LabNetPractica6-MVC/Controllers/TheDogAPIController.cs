@@ -14,7 +14,7 @@ namespace LabNetPractica6_MVC.Controllers
 {
     public class TheDogAPIController : Controller
     {
-        
+
         public async Task<ActionResult> Index()
         {
             try
@@ -24,7 +24,7 @@ namespace LabNetPractica6_MVC.Controllers
             }
             catch (Exception ex)
             {
-                
+
                 return View("Error", new ErrorView { ErrorMessage = ex.Message });
             }
         }

@@ -17,6 +17,7 @@ namespace LabNetPractica7.WEB.API.Controllers
             shippersLogic = new ShippersLogic();
         }
 
+        [HttpGet]
         public IHttpActionResult Get()
         {
             try
@@ -42,7 +43,7 @@ namespace LabNetPractica7.WEB.API.Controllers
                 return InternalServerError(ex);
             }
         }
-
+        [HttpGet]
         public IHttpActionResult Get(int id)
         {
             try
@@ -68,7 +69,7 @@ namespace LabNetPractica7.WEB.API.Controllers
                 return InternalServerError(ex);
             }
         }
-
+        [HttpPost]
         public IHttpActionResult Post([FromBody] ShipperModel shipperModel)
         {
             try
@@ -95,7 +96,7 @@ namespace LabNetPractica7.WEB.API.Controllers
                 return InternalServerError(ex);
             }
         }
-
+        [HttpPut]
         public IHttpActionResult Put(int id, [FromBody] ShipperModel shipperModel)
         {
             try
@@ -128,7 +129,7 @@ namespace LabNetPractica7.WEB.API.Controllers
                 return InternalServerError(ex);
             }
         }
-
+        [HttpDelete]
         public IHttpActionResult Delete(int id)
         {
             try
