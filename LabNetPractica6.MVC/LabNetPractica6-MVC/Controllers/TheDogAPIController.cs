@@ -24,7 +24,7 @@ namespace LabNetPractica6_MVC.Controllers
             }
             catch (Exception ex)
             {
-                // Envía la información de la excepción a la vista de error personalizada
+                
                 return View("Error", new ErrorView { ErrorMessage = ex.Message });
             }
         }
@@ -47,12 +47,12 @@ namespace LabNetPractica6_MVC.Controllers
                             return result.FirstOrDefault();
                         }
                     }
-                    // Si no se pudo obtener la imagen, lanza una excepción personalizada
+                 
                     throw new Exception("No se pudo obtener una imagen de perro aleatoria.");
                 }
                 catch (Exception ex)
                 {
-                    // Lanza una excepción personalizada con el mensaje de la excepción original
+               
                     throw new Exception("Error al obtener la imagen.", ex);
                 }
             }
