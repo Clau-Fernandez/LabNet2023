@@ -17,30 +17,27 @@ namespace LabNetPractica7.WEB.API.Controllers
         {
             categoriesLogic = new CategoriesLogic();
         }
+
         [HttpGet]
         public IHttpActionResult Get()
         {
             try
             {
                 var categories = categoriesLogic.GetAll();
-                var categoryModels = new List<CategoryModel>();
-                foreach (var category in categories)
+                var categoryModels = categories.Select(category => new CategoryModel
                 {
-                    var categoryModel = new CategoryModel
-                    {
-                        CategoryID = category.CategoryID,
-                        CategoryName = category.CategoryName,
-                        Description = category.Description
-                    };
-                    categoryModels.Add(categoryModel);
-                }
+                    CategoryID = category.CategoryID,
+                    CategoryName = category.CategoryName,
+                    Description = category.Description
+                }).ToList();
                 return Ok(categoryModels);
             }
             catch (Exception ex)
             {
-                return InternalServerError(ex);
+                return InternalServerError(new Exception("Se produjo un error al obtener las categorías.", ex));
             }
         }
+
         [HttpGet]
         public IHttpActionResult Get(int id)
         {
@@ -63,7 +60,7 @@ namespace LabNetPractica7.WEB.API.Controllers
             }
             catch (Exception ex)
             {
-                return InternalServerError(ex);
+                return InternalServerError(new Exception("Se produjo un error al procesar la solicitud.", ex));
             }
             
         }
@@ -92,9 +89,11 @@ namespace LabNetPractica7.WEB.API.Controllers
             }
             catch (Exception ex)
             {
-                return InternalServerError(ex);
+                return InternalServerError(new Exception("Se produjo un error al procesar la solicitud.", ex));
             }
         }
+
+        
         [HttpPut]
         public IHttpActionResult Put(int id, [FromBody] CategoryModel categoryModel)
         {
@@ -124,8 +123,8 @@ namespace LabNetPractica7.WEB.API.Controllers
                 return Ok();
             }
             catch (Exception ex)
-            { 
-                return InternalServerError(ex);
+            {
+                return InternalServerError(new Exception("Se produjo un error al procesar la solicitud.", ex));
             }
         }
 
@@ -149,7 +148,7 @@ namespace LabNetPractica7.WEB.API.Controllers
             catch (Exception ex)
             {
 
-                return InternalServerError(ex);
+                return InternalServerError(new Exception("Se produjo un error al procesar la solicitud.", ex));
             }
         }
 
