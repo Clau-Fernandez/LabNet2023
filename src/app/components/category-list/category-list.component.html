@@ -1,0 +1,45 @@
+<div class="row">
+  <div class="col-sm-6">
+    <button
+      class="btn btn-outline-dark"
+      id="btn-add"
+      routerLink="/categories/add"
+    >
+      Agregar categoría
+    </button>
+  </div>
+</div>
+
+<table class="table table-dark table-hover">
+  <thead>
+    <tr>
+      <th>Categoría</th>
+      <th>Descripción</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let category of categories">
+      <td>{{ category.categoryName }}</td>
+      <td>{{ category.description }}</td>
+      <td>
+        <a
+          [routerLink]="['/categories/edit', category.categoryID]"
+          class="btn btn-primary mr-2"
+          id="btn-edit"
+        >
+          Editar
+        </a>
+
+        <button
+          (click)="deleteCategory(category.categoryID ?? 0)"
+          class="btn btn-danger"
+          id="btn-delete"
+        >
+          Borrar
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>

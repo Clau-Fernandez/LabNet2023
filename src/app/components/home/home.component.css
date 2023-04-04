@@ -1,0 +1,17 @@
+h1
+{
+    color: whitesmoke;
+    padding: 30px;
+    font-weight: bold;
+    letter-spacing: 2px;
+   
+}
+.container {
+    margin-top: 8%;
+    height: 350px;
+    box-shadow: 11px 10px 9px -3px rgba(0,0,0,0.75);
+}
+.btn {
+    font-size: 25px;
+    font-weight: bold;
+}

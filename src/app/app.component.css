@@ -1,0 +1,15 @@
+.navbar-brand
+{   color: white;
+    font-size: 50px;
+    font-family: 'Alkatra', cursive;
+    
+}
+#navbar-margin {
+    margin-left: 2%;
+}
+
+.bi {
+    color: white;
+    margin-right: 15px;
+    
+}
