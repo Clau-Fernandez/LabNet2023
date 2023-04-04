@@ -1,0 +1,11 @@
+{
+  "/api/": {
+    "target": "https://localhost:44341/",
+    "secure": false,
+    "logLevel": "debug",
+    "headers": {
+      "Access-Control-Allow-Origin": "",
+      "Access-Control-Allow-Headers": "Content-Type"
+    }
+  }
+}

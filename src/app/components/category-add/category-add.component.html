@@ -1,0 +1,84 @@
+<div class="container">
+  <h1 class="my-4">Agregar nueva categoría</h1>
+  <form [formGroup]="addForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="categoryName">Nombre de categoría</label>
+      <input
+        type="text"
+        id="categoryName"
+        class="form-control"
+        formControlName="categoryName"
+      />
+      <div
+        *ngIf="
+          categoryName?.invalid &&
+          (categoryName?.dirty || categoryName?.touched)
+        "
+      >
+        <div
+          *ngIf="categoryName?.errors?.['required']"
+          class="alert alert-danger mt-2"
+          role="alert"
+        >
+          Este campo es obligatorio
+        </div>
+        <div
+          *ngIf="categoryName?.errors?.['pattern']"
+          class="alert alert-danger mt-2"
+          role="alert"
+        >
+          Solo puedes ingresar letras, espacios, y puede incluir barras (/) para
+          separar terminos.
+        </div>
+        <div
+          *ngIf="categoryName?.errors?.['maxlength']"
+          class="alert alert-danger mt-2"
+          role="alert"
+        >
+          El nombre de la categoría no puede tener más de
+          {{ maxCategoryNameLength }} caracteres.
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="description">Descripción</label>
+      <textarea
+        id="description"
+        class="form-control"
+        formControlName="description"
+      ></textarea>
+      <div
+        *ngIf="
+          description?.invalid && (description?.dirty || description?.touched)
+        "
+      >
+        <div
+          *ngIf="description?.errors?.['pattern']"
+          class="alert alert-danger mt-2"
+          role="alert"
+        >
+          La descripción solo puede contener letras, comas y espacios.
+        </div>
+        <div
+          *ngIf="description?.errors?.['maxlength']"
+          class="alert alert-danger mt-2"
+          role="alert"
+        >
+          La descripción no puede tener más de
+          {{ maxDescriptionLength }} caracteres.
+        </div>
+      </div>
+    </div>
+    <button
+      type="submit"
+      class="btn btn-primary mr-2"
+      [disabled]="addForm.invalid"
+    >
+      Guardar
+    </button>
+    <button type="button" class="btn btn-secondary" (click)="resetForm()">
+      Cancelar
+    </button>
+    <div *ngIf="error" class="mt-2 alert alert-danger">{{ error }}</div>
+  </form>
+</div>
