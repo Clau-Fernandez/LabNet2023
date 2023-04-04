@@ -1,0 +1,45 @@
+﻿@model LabNetPractica6_MVC.Models.ShipperView
+@{
+    ViewBag.Title = "Agregar un transportista";
+}
+
+<div class="container">
+    <h1>@ViewBag.Title</h1>
+
+    @using (Html.BeginForm("Insert", "Shippers", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-group my-3">
+
+            @Html.LabelFor(s => s.CompanyName, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(s => s.CompanyName, new { @class = "form-control" })
+                @Html.ValidationMessageFor(s => s.CompanyName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group my-3">
+            @Html.LabelFor(s => s.Phone, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(s => s.Phone, new { @class = "form-control" })
+                @Html.ValidationMessageFor(s => s.Phone, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group my-3">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Guardar" class="btn btn-success" />
+            </div>
+        </div>
+    }
+
+    <div>
+        @Html.ActionLink("Volver", "Index")
+    </div>
+
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

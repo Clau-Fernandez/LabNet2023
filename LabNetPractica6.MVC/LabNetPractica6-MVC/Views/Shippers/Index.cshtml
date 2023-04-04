@@ -1,0 +1,49 @@
+﻿@model List<LabNetPractica6_MVC.Models.ShipperView>
+
+@{
+    ViewBag.title = "Shippers Page";
+}
+
+<div class="container">
+
+    <h1 class="mb-md-4">Shippers</h1>
+
+    <table class="table table-hover mb-4">
+
+        <thead>
+            <tr>
+                <th scope="col"></th>
+                <th scope="col">Company Name</th>
+                <th scope="col">Phone</th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var shipper in Model)
+            {
+                <tr>
+                    <td>@Html.HiddenFor(model => shipper.ShipperID)</td>
+                    <td>@shipper.CompanyName</td>
+                    <td>@shipper.Phone</td>
+                    <td>@Html.ActionLink("Modificar", "Update", new { id = shipper.ShipperID }, new { @class = "btn btn-secondary" })</td>
+                    <td>@Html.ActionLink("Borrar", "Delete", new { id = shipper.ShipperID }, new { @class = "btn btn-danger", onclick = "return confirm('¿Seguro que quieres borrar este elemento?')" })</td>
+
+                </tr>
+
+            }
+        </tbody>
+
+    </table>
+
+
+    <div class="m-2">
+        @Html.ActionLink("Agregar un nuevo Shipper", "Insert", null, new { @class = "btn btn-outline-primary" })
+    </div>
+
+    <div class="m-2 mt-4">
+        @Html.ActionLink("Nombre de empresas que contienen 'United' en su nombre", "ShippersContainingUnited", null, new { @class = "btn btn-outline-dark" })
+    </div>
+
+</div>

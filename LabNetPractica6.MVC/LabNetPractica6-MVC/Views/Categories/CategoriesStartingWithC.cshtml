@@ -1,0 +1,37 @@
+﻿@model List<LabNetPractica6_MVC.Models.CategoryView>
+
+@{
+    ViewBag.title = "Categories Starting with C";
+}
+
+<div class="container">
+    <h1>Categorías que comienzan con C</h1>
+
+    <table class="table table-hover my-3">
+
+        <thead>
+        <thead>
+            <tr>
+                <th scope="col">Nombre</th>
+                <th scope="col">Descripción</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var category in Model)
+            {
+                if (category.CategoryName.StartsWith("C", true, null))
+                {
+                    <tr>
+                        <td>@category.CategoryName</td>
+                        <td>@category.Description</td>
+                    </tr>
+                }
+            }
+        </tbody>
+
+    </table>
+
+    <div class="my-3">
+        @Html.ActionLink("Volver", "Index")
+    </div>
+</div>

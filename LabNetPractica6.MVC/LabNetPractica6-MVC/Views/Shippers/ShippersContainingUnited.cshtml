@@ -1,0 +1,36 @@
+﻿@model List<LabNetPractica6_MVC.Models.ShipperView>
+
+@{
+    ViewBag.title = "ShippersContainingUnited";
+}
+
+<div class="container">
+    <h1>Empresas de transporte que contienen 'United' en su nombre</h1>
+
+    <table class="table table-hover my-3">
+
+        <thead>
+        <thead>
+            <tr>
+             
+                <th scope="col">Nombre</th>
+                <th scope="col">Teléfono</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var shipper in Model)
+            {
+                <tr>
+                
+                    <td>@shipper.CompanyName</td>
+                    <td>@shipper.Phone</td>
+                </tr>
+            }
+        </tbody>
+
+    </table>
+
+    <div class="my-3">
+        @Html.ActionLink("Volver", "Index")
+    </div>
+</div>
